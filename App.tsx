@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// App.tsx
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import TopTabNavigator from './src/Router/TopTab/Index';
+import { SafeAreaView } from 'react-native';
+import MainNavigation from './src/Router/Stacks/MainNavigation';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <NavigationContainer>
+        <MainNavigation />          
+      </NavigationContainer>           
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
