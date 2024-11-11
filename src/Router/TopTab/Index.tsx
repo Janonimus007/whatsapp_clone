@@ -5,42 +5,42 @@ import { Text, View } from 'react-native';
 import ChatsScreen from '../../Screens/Chats/ChatsScreen';
 import CallsScreen from '../../Screens/Calls/CallsScreen';
 import Colors from '../../Constants/Colors';
-
-const Tab = createMaterialTopTabNavigator();
+import {MainTabParamList} from '../../../types'
+import Fontisto from '@expo/vector-icons/Fontisto';
+const Tab = createMaterialTopTabNavigator<MainTabParamList>();
 
 export default function TopTabNavigator() {
   return (
     <Tab.Navigator
     screenOptions={{
         tabBarStyle: {
-            backgroundColor: Colors.light.tint, // Color del fondo de la barra de pestañas
+            backgroundColor: Colors.light.tint, 
           },
-          tabBarActiveTintColor: Colors.light.background, // Color del texto activo
-          tabBarInactiveTintColor: 'gray', // Color del texto inactivo
+          tabBarActiveTintColor: Colors.light.background, 
           tabBarIndicatorStyle: {
-            backgroundColor: Colors.light.background, // Color del indicador
+            backgroundColor: Colors.light.background, 
+            height:3
           },
-        //   headerStyle: {
-        //     backgroundColor: Colors.light.tint, 
-        //   },
-        //   headerTintColor: Colors.light.background, 
-        //   headerTitle: 'WhatsApp', 
-        //   headerTitleAlign: 'left',
-        //   headerTitleStyle: {
-        //     fontWeight: 'bold',
-        //   },
-
-        // headerRight: () => (
-        //   <View style={{ flexDirection: 'row', marginRight: 10 }}>
-        //     <FontAwesome name="search" size={22} color={Colors.light.background} style={{ marginRight: 22 }} />
-        //     <Entypo name="dots-three-vertical" size={22} color={Colors.light.background} />
-        //   </View>
-        // ),
+          tabBarLabelStyle:{
+            fontWeight:'bold'
+          },
+          tabBarShowIcon:true
         
       }}
+      initialRouteName='Chats'
     >
-      <Tab.Screen name="ChatsScreen" component={ChatsScreen} />
-      <Tab.Screen name="CallsScreen" component={CallsScreen} />
+      <Tab.Screen 
+        options={{
+          tabBarIcon:({color})=><Fontisto name="camera" size={16} color={color}/>,
+          tabBarLabel:()=>null
+          
+        }}
+        name="Camera" component={ChatsScreen} 
+      />
+      <Tab.Screen name="Chats" component={ChatsScreen} />
+      <Tab.Screen  name="Status" component={CallsScreen} />
+      <Tab.Screen  name="Calls" component={ChatsScreen} />
+ 
     </Tab.Navigator>
   );
 }

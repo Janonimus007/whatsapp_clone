@@ -1,0 +1,25 @@
+export type MainTabParamList={
+    Camera: undefined;
+    Chats: undefined;
+    Status: undefined;
+    Calls: undefined;
+
+}
+
+export type User = {
+    id: String;
+    name:String;
+    imageUri:String
+}
+
+export type Message = {
+    id:String;
+    content:String;
+    createdAt:number
+}
+
+export type ChatRoom = {
+    id:String;
+    users:[User];
+    lastMessage: Message;
+}

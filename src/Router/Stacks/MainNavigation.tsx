@@ -14,6 +14,8 @@ const MainNavigation = () => (
   
           headerStyle: {
             backgroundColor: Colors.light.tint, 
+            shadowOpacity: 0, //IOS -- linea debajo del encabezado
+            elevation:0 //Android
           },
           headerTintColor: Colors.light.background, 
           headerTitle: 'WhatsApp', 
